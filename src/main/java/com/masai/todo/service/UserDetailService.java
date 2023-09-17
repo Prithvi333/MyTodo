@@ -1,8 +1,8 @@
 package com.masai.todo.service;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -34,11 +34,10 @@ public class UserDetailService implements UserDetailsService {
 			String userName = todoUser.getUserEmail();
 			String userPassword = todoUser.getUserPassword();
 
-			Set<GrantedAuthority> authority = new HashSet<>();
+			List<GrantedAuthority> authority = new ArrayList<>();
 
 			SimpleGrantedAuthority aut = new SimpleGrantedAuthority(todoUser.getRole());
 			authority.add(aut);
-
 			return new User(userName, userPassword, authority);
 		}
 

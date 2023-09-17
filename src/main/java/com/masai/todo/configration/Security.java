@@ -10,8 +10,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
+
+import com.masai.todo.service.TokenGenerator;
+import com.masai.todo.service.TokenValidator;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -39,11 +43,13 @@ public class Security {
 
 						return cfg;
 					}
-				})).authorizeHttpRequests(htp -> {
+				})).authorizeHttpRequests(auth -> {
 
-					htp.anyRequest().authenticated();
-				}).cors(cors -> cors.disable()).formLogin(Customizer.withDefaults())
-				.httpBasic(Customizer.withDefaults());
+					auth.requestMatchers("todo/signin", "todo/user").permitAll().anyRequest().authenticated();
+				}).addFilterAfter(new TokenGenerator(), BasicAuthenticationFilter.class)
+				.addFilterBefore(new TokenValidator(), BasicAuthenticationFilter.class).csrf(csrf -> csrf.disable())
+
+				.formLogin(Customizer.withDefaults()).httpBasic(Customizer.withDefaults());
 
 		return http.build();
 	}

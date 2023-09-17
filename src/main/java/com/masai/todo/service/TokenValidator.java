@@ -28,28 +28,35 @@ public class TokenValidator extends OncePerRequestFilter {
 
 		if (header != null && header.startsWith("Bearer")) {
 
-			SecretKey key = Keys.hmacShaKeyFor(CredentialHolder.jwtKey.getBytes());
+			try {
 
-			String jwt = header.substring(7);
+				SecretKey key = Keys.hmacShaKeyFor(CredentialHolder.jwtKey.getBytes());
 
-			Claims claim = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt).getBody();
+				String jwt = header.substring(7);
 
-			String username = String.valueOf(claim.get("username"));
-			String authority = String.valueOf(claim.get("authority"));
+				Claims claim = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt).getBody();
 
-			Authentication auth = new UsernamePasswordAuthenticationToken(username,
-					AuthorityUtils.commaSeparatedStringToAuthorityList(authority));
+				String username = String.valueOf(claim.get("username"));
+				String authority = String.valueOf(claim.get("authorities"));
 
-			SecurityContextHolder.getContext().setAuthentication(auth);
-		} else
 
-			filterChain.doFilter(request, response);
+				Authentication auth = new UsernamePasswordAuthenticationToken(username, null,
+						AuthorityUtils.commaSeparatedStringToAuthorityList(authority));
+                 System.out.println("Running....");
+				SecurityContextHolder.getContext().setAuthentication(auth);
+			} catch (Exception e) {
+
+				throw new Error("Invalid user credentials");
+			}
+		}
+
+		filterChain.doFilter(request, response);
 
 	}
 
 	@Override
 	protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-		return request.getServletPath().equals("/singnin");
+		return request.getServletPath().equals("todo/signin");
 	}
 
 }

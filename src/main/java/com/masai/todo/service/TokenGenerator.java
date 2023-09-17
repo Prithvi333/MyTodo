@@ -2,6 +2,7 @@ package com.masai.todo.service;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,16 +24,16 @@ public class TokenGenerator extends OncePerRequestFilter {
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
-
 		org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-
+		System.out.println("Running " + auth.getName());
 		if (auth != null) {
 
 			SecretKey key = Keys.hmacShaKeyFor(CredentialHolder.jwtKey.getBytes());
 
 			String jwt = Jwts.builder().setIssuer("TodoManager").setSubject("Jwt token")
-					.claim("username", auth.getName()).claim("authority", amendAuthority(auth.getAuthorities()))
-					.signWith(key).compact();
+					.claim("username", auth.getName()).claim("authorities", amendAuthority(auth.getAuthorities()))
+					.setIssuedAt(new Date()).setExpiration(new Date(new Date().getTime() + 4000000)).signWith(key)
+					.compact();
 			response.setHeader(CredentialHolder.jwtHeader, jwt);
 		}
 		filterChain.doFilter(request, response);
@@ -42,7 +43,7 @@ public class TokenGenerator extends OncePerRequestFilter {
 	@Override
 	protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
 
-		return !request.getServletPath().equals("/signin");
+		return !request.getServletPath().equals("/todo/signin");
 	}
 
 	public String amendAuthority(Collection<? extends GrantedAuthority> authority) {
@@ -53,6 +54,5 @@ public class TokenGenerator extends OncePerRequestFilter {
 		}
 		return String.join(",", set);
 	}
-	
-	
+
 }
