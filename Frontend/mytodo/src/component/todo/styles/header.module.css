@@ -1,0 +1,26 @@
+.headerflex {
+  display: flex;
+  border: 2px solid black;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #136dbd;
+}
+#logo {
+  width: 40px;
+  margin-right: 15px;
+}
+
+.searchid {
+  padding: 6px;
+  border-radius: 4px;
+}
+
+#todotextcolor {
+  color: white;
+  cursor: pointer;
+}
+.radiobtn {
+  align-items: center;
+  border: 2px solid black;
+}

@@ -1,0 +1,28 @@
+#underlinetext {
+  text-decoration: underline;
+}
+.textseprator {
+  margin: 7px;
+}
+#card {
+  /* border: 2px solid gray; */
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.opttaker {
+  text-align: right;
+  margin-top: 10px;
+}
+.low {
+  background: lightgreen;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.mid {
+  background: lightyellow;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.high {
+  background: rgb(244, 78, 78);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

@@ -1,0 +1,39 @@
+.mainflex {
+  display: flex;
+  border: 2px solid black;
+  justify-content: space-between;
+  /* height: 91vh; */
+}
+#leftbox {
+  border: 2px solid blue;
+  width: 10%;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  line-height: 2;
+  height: 100%;
+}
+#rightbox {
+  border: 2px solid red;
+  width: 90%;
+}
+#form {
+  align-items: center;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  border: 2px solid black;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  line-height: 2;
+  padding: 9px;
+}
+#gridshow {
+  border: 2px solid green;
+  margin-top: 20px;
+  padding: 10px;
+}
+#textarea {
+  resize: none;
+}
