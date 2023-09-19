@@ -6,28 +6,31 @@
 }
 #leftbox {
   border: 2px solid blue;
-  width: 10%;
+  background-color: #136dbd;
+  width: 15%;
   text-align: center;
   position: sticky;
   top: 0;
   line-height: 2;
-  height: 100%;
 }
 #rightbox {
   border: 2px solid red;
   width: 90%;
+  padding: 20px;
 }
 #form {
-  align-items: center;
   display: flex;
   /* flex-direction: column; */
   justify-content: space-between;
   border: 2px solid black;
+  align-items: center;
   text-align: center;
   width: 50%;
-  margin: auto;
   line-height: 2;
   padding: 9px;
+  margin-left: 10px;
+  background-color: lightgray;
+  border-radius: 5px;
 }
 #gridshow {
   border: 2px solid green;
@@ -36,4 +39,33 @@
 }
 #textarea {
   resize: none;
+}
+.choosebutton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.leftbuttons {
+  padding: 2px 8px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+}
+.marginleft {
+  margin-left: 10px;
+}
+.subbtn {
+  margin: 10px;
+  text-align: right;
+}
+
+#idsorter {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 1224px) {
+  #form {
+    flex-direction: column;
+  }
 }

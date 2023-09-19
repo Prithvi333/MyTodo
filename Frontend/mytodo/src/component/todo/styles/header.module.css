@@ -11,11 +11,6 @@
   margin-right: 15px;
 }
 
-.searchid {
-  padding: 6px;
-  border-radius: 4px;
-}
-
 #todotextcolor {
   color: white;
   cursor: pointer;
@@ -23,4 +18,12 @@
 .radiobtn {
   align-items: center;
   border: 2px solid black;
+}
+.backgroundimg {
+  height: 91.5vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../../../resources/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg");
 }

@@ -1,9 +1,15 @@
 .btn {
-  margin: 6px;
-  padding: 6px;
+  margin: 4px;
+  padding: 4px;
   border-radius: 4px;
   cursor: pointer;
+  background-color: whitesmoke;
 }
 .textcenter {
   text-align: center;
+}
+.inpborder {
+  padding: 2px;
+  border-radius: 4px;
+  margin: 6px;
 }

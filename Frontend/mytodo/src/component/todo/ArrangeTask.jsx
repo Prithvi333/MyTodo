@@ -1,5 +1,5 @@
 import Styles from "./styles/ArrangeTask.module.css";
-export default function ArrangeTask({ task }) {
+export default function ArrangeTask({ task, handleStatus }) {
   const color =
     task.taskPriority == "LOW"
       ? Styles.low
@@ -7,8 +7,13 @@ export default function ArrangeTask({ task }) {
       ? Styles.mid
       : Styles.high;
 
+  const impbtnbackground = task.favorite ? Styles.btnbackground : null;
+  const compbtnbackground = task.complete ? Styles.btnbackground : null;
+  const delbtnbackground = task.deleted ? Styles.btnbackground : null;
+
   return (
     <div className={color} id={Styles.card}>
+      <h4>{task.taskId}</h4>
       <h3 id={Styles.underlinetext}>{task.taskTitle}</h3>
       <p>{task.taskDesc}</p>
       <div>
@@ -17,9 +22,27 @@ export default function ArrangeTask({ task }) {
         <i className={Styles.textseprator}>{task.taskPriority}</i>
         <hr />
         <div className={Styles.opttaker}>
-          <button className="btn">Important</button>
-          <button className="btn">Complete</button>
-          <button className="btn">Delete</button>
+          <button
+            onClick={() => handleStatus("favoritetask", task.taskId)}
+            className="btn"
+            id={impbtnbackground}
+          >
+            Important
+          </button>
+          <button
+            onClick={() => handleStatus("completetask", task.taskId)}
+            className="btn"
+            id={compbtnbackground}
+          >
+            Complete
+          </button>
+          <button
+            onClick={() => handleStatus("deletetask", task.taskId)}
+            className="btn"
+            id={delbtnbackground}
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>

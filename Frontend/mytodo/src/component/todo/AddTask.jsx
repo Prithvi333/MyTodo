@@ -1,6 +1,6 @@
 import { useReducer, useState } from "react";
 import Styles from "./styles/main.module.css";
-import reducer from "./AddReducer";
+import reducer from "./addReducer";
 
 const initValue = {
   taskTitle: "",
@@ -10,10 +10,7 @@ const initValue = {
   taskPriority: "",
 };
 
-export default function AddTask({ AddTask }) {
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
-
+export default function AddTask({ addTask }) {
   const [task, dispatch] = useReducer(reducer, initValue);
 
   const handleUpdater = (e) => {
@@ -24,28 +21,29 @@ export default function AddTask({ AddTask }) {
   };
 
   const sendData = () => {
-    console.log(task);
-    AddTask(task);
+    addTask(task);
   };
 
   return (
     <>
-      <h3 className="textcenter">Add your task here!</h3>
+      <h3 className={Styles.marginleft}>Add your task here!</h3>
       <form id={Styles.form} action="#">
         <div>
           <input
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
+            className={"inpborder"}
+            onChange={handleUpdater}
+            value={task.taskTitle}
             type="text"
-            name=""
+            name="taskTitle"
             placeholder="Enter title"
           />
           <br />
           <textarea
+            className={"inpborder"}
             placeholder="Enter descripton"
-            onChange={(e) => setDesc(e.target.value)}
-            value={desc}
-            name=""
+            onChange={handleUpdater}
+            value={task.taskDesc}
+            name="taskDesc"
             id={Styles.textarea}
             cols="auto"
             rows="auto"
@@ -55,7 +53,12 @@ export default function AddTask({ AddTask }) {
           <br />
         </div>
         <div>
-          <select onChange={handleUpdater} name="" value={task.taskDay}>
+          <select
+            className={"inpborder"}
+            onChange={handleUpdater}
+            name="taskDay"
+            value={task.taskDay}
+          >
             <option value="">Day</option>
             <option value="MONDAY">Monday</option>
             <option value="TUESDAY">Tuesday</option>
@@ -69,9 +72,11 @@ export default function AddTask({ AddTask }) {
           <label htmlFor="data">Choose deadline</label>
           <br />
           <input
+            className={"inpborder"}
             onChange={handleUpdater}
             type="date"
             id="date"
+            name="taskDeadline"
             value={task.taskDeadline}
           />
         </div>
@@ -82,7 +87,7 @@ export default function AddTask({ AddTask }) {
           <label htmlFor="low">Low</label>
           <input
             onChange={handleUpdater}
-            value={task.taskPriority}
+            value="LOW"
             type="radio"
             name="taskPriority"
             id="low"
@@ -90,7 +95,7 @@ export default function AddTask({ AddTask }) {
           <label htmlFor="high">Medium</label>
           <input
             onChange={handleUpdater}
-            value={task.taskPriority}
+            value="MEDIUM"
             type="radio"
             name="taskPriority"
             id="high"
@@ -98,14 +103,17 @@ export default function AddTask({ AddTask }) {
           <label htmlFor="medium">High</label>
           <input
             onChange={handleUpdater}
-            value={task.taskPriority}
+            value="HIGH"
             type="radio"
             name="taskPriority"
             id="medium"
           />
           <div>
             <input
-              onClick={() => sendData}
+              onClick={(e) => {
+                e.preventDefault();
+                sendData();
+              }}
               className="btn"
               type="submit"
               name=""
