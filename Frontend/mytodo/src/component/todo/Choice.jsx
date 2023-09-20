@@ -1,16 +1,29 @@
 import { getOriginalData } from "./APIs/getOriginalData";
 import Styles from "./styles/main.module.css";
-export default function Choice({ data, setData, getData }) {
+export default function Choice({
+  data,
+  setData,
+  getData,
+  setCheckedData,
+  setEmptyChecker,
+}) {
   const filterTask = async (status) => {
-    const impData = data.filter((task) => task[status]);
-    setData(impData);
+    let impData = [];
+    impData = data.filter((task) => task[status]);
+    impData.length == 0
+      ? setEmptyChecker(true)
+      : setCheckedData(impData) && setEmptyChecker(false);
   };
 
   return (
     <div className={Styles.choosebutton}>
       <button
         className={Styles.leftbuttons}
-        onClick={() => getOriginalData(getData, setData)}
+        onClick={() => {
+          setEmptyChecker(false);
+          setCheckedData(null);
+          getOriginalData(getData, setData);
+        }}
       >
         All
       </button>

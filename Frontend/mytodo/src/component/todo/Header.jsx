@@ -1,14 +1,15 @@
 import Styles from "./styles/header.module.css";
 import logo from "../../resources/logo.png";
-import { useState } from "react";
 export default function Header({
   taskId,
   setTaskId,
   auth,
+  authController,
   loginForm,
   setLoginForm,
   signUpForm,
   setSignUpForm,
+  setCredential,
 }) {
   return (
     <>
@@ -33,15 +34,43 @@ export default function Header({
         )}
 
         <div>
-          <button onClick={() => setLoginForm(!loginForm)} className="btn">
-            Login
-          </button>
-          <button onClick={() => setSignUpForm(!signUpForm)} className="btn">
-            Register
-          </button>
+          {auth ? (
+            <button
+              onClick={() => {
+                setCredential({ username: "", password: "" });
+                authController();
+              }}
+              className="btn"
+            >
+              Logout
+            </button>
+          ) : (
+            <>
+              <button
+                onClick={() => {
+                  setSignUpForm(false);
+                  setLoginForm(!loginForm);
+                }}
+                className="btn"
+              >
+                Login
+              </button>
+              <button
+                onClick={() => {
+                  setLoginForm(false);
+                  setSignUpForm(!signUpForm);
+                }}
+                className="btn"
+              >
+                Register
+              </button>
+            </>
+          )}
         </div>
       </header>
-      {!loginForm && <div className={Styles.backgroundimg}></div>}
+      {!loginForm && !signUpForm && (
+        <div className={Styles.backgroundimg}></div>
+      )}
     </>
   );
 }

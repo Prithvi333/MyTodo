@@ -1,15 +1,7 @@
-import { useState } from "react";
 import Styles from "./styles/Login.module.css";
 import userLogin from "./APIs/userLogin";
 
-const cred = {
-  username: "",
-  password: "",
-};
-
-export default function Login({ authController }) {
-  const [credential, setCredential] = useState(cred);
-
+export default function Login({ authController, credential, setCredential }) {
   const triggerLogin = async (e) => {
     e.preventDefault();
     const response = await userLogin(credential);
@@ -18,7 +10,7 @@ export default function Login({ authController }) {
 
   return (
     <div className={Styles.backgroundimg}>
-      <img src="./" alt="" />
+      <img src="" alt="" />
       <form id={Styles.formalignment} action="#">
         <label htmlFor="">Enter your username</label>
         <br />
@@ -28,7 +20,7 @@ export default function Login({ authController }) {
           }
           value={credential.username}
           className="inpborder"
-          type="text"
+          type="email"
           name="username"
           id=""
         />
@@ -41,7 +33,7 @@ export default function Login({ authController }) {
           }
           value={credential.password}
           className="inpborder"
-          type="text"
+          type="password"
           name="password"
           id=""
         />

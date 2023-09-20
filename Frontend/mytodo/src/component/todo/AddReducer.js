@@ -6,6 +6,11 @@ export default function reducer(state, action) {
         [action.payload.name]: action.payload.value,
       };
     }
+
+    case "RESET_VALUE": {
+      return { ...action.payload };
+    }
+
     default: {
       throw new Error("Invalid action");
     }

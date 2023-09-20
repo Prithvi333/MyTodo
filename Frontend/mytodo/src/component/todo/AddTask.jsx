@@ -22,10 +22,11 @@ export default function AddTask({ addTask }) {
 
   const sendData = () => {
     addTask(task);
+    dispatch({ type: "RESET_VALUE", payload: initValue });
   };
 
   return (
-    <>
+    <div id={Styles.formalignment}>
       <h3 className={Styles.marginleft}>Add your task here!</h3>
       <form id={Styles.form} action="#">
         <div>
@@ -123,6 +124,6 @@ export default function AddTask({ addTask }) {
           </div>
         </div>
       </form>
-    </>
+    </div>
   );
 }

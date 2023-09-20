@@ -1,5 +1,5 @@
 import Styles from "./styles/ArrangeTask.module.css";
-export default function ArrangeTask({ task, handleStatus }) {
+export default function ArrangeTask({ task, handleStatus, checkedData }) {
   const color =
     task.taskPriority == "LOW"
       ? Styles.low
@@ -10,10 +10,13 @@ export default function ArrangeTask({ task, handleStatus }) {
   const impbtnbackground = task.favorite ? Styles.btnbackground : null;
   const compbtnbackground = task.complete ? Styles.btnbackground : null;
   const delbtnbackground = task.deleted ? Styles.btnbackground : null;
-
+  console.log(task);
   return (
     <div className={color} id={Styles.card}>
-      <h4>{task.taskId}</h4>
+      <div className={Styles.flex}>
+        <h4>{task.taskId}</h4>
+        <h4>{task.taskTime}</h4>
+      </div>
       <h3 id={Styles.underlinetext}>{task.taskTitle}</h3>
       <p>{task.taskDesc}</p>
       <div>
@@ -22,27 +25,33 @@ export default function ArrangeTask({ task, handleStatus }) {
         <i className={Styles.textseprator}>{task.taskPriority}</i>
         <hr />
         <div className={Styles.opttaker}>
-          <button
-            onClick={() => handleStatus("favoritetask", task.taskId)}
-            className="btn"
-            id={impbtnbackground}
-          >
-            Important
-          </button>
-          <button
-            onClick={() => handleStatus("completetask", task.taskId)}
-            className="btn"
-            id={compbtnbackground}
-          >
-            Complete
-          </button>
-          <button
-            onClick={() => handleStatus("deletetask", task.taskId)}
-            className="btn"
-            id={delbtnbackground}
-          >
-            Delete
-          </button>
+          {!checkedData && (
+            <>
+              ({" "}
+              <button
+                onClick={() => handleStatus("favoritetask", task.taskId)}
+                className="btn"
+                id={impbtnbackground}
+              >
+                Important
+              </button>
+              <button
+                onClick={() => handleStatus("completetask", task.taskId)}
+                className="btn"
+                id={compbtnbackground}
+              >
+                Complete
+              </button>
+              <button
+                onClick={() => handleStatus("deletetask", task.taskId)}
+                className="btn"
+                id={delbtnbackground}
+              >
+                Delete
+              </button>
+              )
+            </>
+          )}
         </div>
       </div>
     </div>

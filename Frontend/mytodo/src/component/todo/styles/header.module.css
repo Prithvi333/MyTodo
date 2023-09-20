@@ -1,6 +1,6 @@
 .headerflex {
   display: flex;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   justify-content: space-between;
   align-items: center;
   padding: 10px;
@@ -17,7 +17,7 @@
 }
 .radiobtn {
   align-items: center;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 .backgroundimg {
   height: 91.5vh;

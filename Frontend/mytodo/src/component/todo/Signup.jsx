@@ -12,12 +12,14 @@ export default function Signup() {
   const [credential, setCredential] = useState(cred);
   const triggerSignup = (e) => {
     e.preventDefault();
-    console.log(credential);
     userSignUp(credential);
+    setCredential(cred);
   };
 
   return (
     <div className={Styles.backgroundimg}>
+      <img src="" alt="" />
+
       <form id={Styles.formalignment} action="#">
         <label htmlFor="">Enter your username</label>
         <br />

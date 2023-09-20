@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-export const authConntext = createContext(false);
+export const authConntext = createContext();
 
 export default function AuthHolder(props) {
   const [auth, setAuth] = useState(false);

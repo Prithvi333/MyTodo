@@ -1,39 +1,46 @@
 .mainflex {
   display: flex;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   justify-content: space-between;
-  /* height: 91vh; */
+  min-height: 92vh;
 }
 #leftbox {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   background-color: #136dbd;
   width: 15%;
   text-align: center;
-  position: sticky;
-  top: 0;
   line-height: 2;
 }
 #rightbox {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   width: 90%;
-  padding: 20px;
+  padding: 50px;
+  background-color: #e8eaed;
+  /* background-image: url(../../../resources/jess-bailey-94Ld_MtIUf0-unsplash.jpg); */
+  /* background-repeat: no-repeat; */
+  /* background-size: contain;
+  background-position: center;
+  width: 100%; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 #form {
   display: flex;
   /* flex-direction: column; */
   justify-content: space-between;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   align-items: center;
   text-align: center;
   width: 50%;
-  line-height: 2;
-  padding: 9px;
+  line-height: 2.5;
+  padding: 19px;
   margin-left: 10px;
-  background-color: lightgray;
   border-radius: 5px;
+  background-color: rgb(120, 209, 181);
 }
 #gridshow {
-  border: 2px solid green;
+  /* border: 2px solid green; */
   margin-top: 20px;
   padding: 10px;
 }
@@ -44,6 +51,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: sticky;
+  top: 0;
+  margin-top: 30px;
 }
 .leftbuttons {
   padding: 2px 8px;
@@ -67,5 +77,6 @@
 @media screen and (max-width: 1224px) {
   #form {
     flex-direction: column;
+    text-align: center;
   }
 }
