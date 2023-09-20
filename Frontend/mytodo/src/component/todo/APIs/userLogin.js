@@ -6,5 +6,5 @@ export default async function userLogin(credentials) {
     },
   });
 
-  return data;
+  if (data.status === 200) return data;
 }

@@ -6,11 +6,12 @@ export default function Choice({
   getData,
   setCheckedData,
   setEmptyChecker,
+  setLoader,
 }) {
   const filterTask = async (status) => {
     let impData = [];
     impData = data.filter((task) => task[status]);
-    impData.length == 0
+    impData.length === 0
       ? setEmptyChecker(true)
       : setCheckedData(impData) && setEmptyChecker(false);
   };
@@ -22,7 +23,7 @@ export default function Choice({
         onClick={() => {
           setEmptyChecker(false);
           setCheckedData(null);
-          getOriginalData(getData, setData);
+          getOriginalData(getData, setData, setEmptyChecker, setLoader);
         }}
       >
         All

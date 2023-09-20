@@ -4,6 +4,7 @@ import Main from "./Mains";
 import { authConntext } from "./AuthenticationContext";
 import Login from "./Login";
 import Signup from "./Signup";
+import NewError from "./NewError";
 
 const cred = {
   username: "",
@@ -15,7 +16,9 @@ export default function Todo() {
   const [loginForm, setLoginForm] = useState(false);
   const [signUpForm, setSignUpForm] = useState(false);
   const [credential, setCredential] = useState(cred);
+  const [error, setError] = useState("");
   const authStatus = useContext(authConntext);
+  console.log(error);
   return (
     <>
       <Header
@@ -29,18 +32,30 @@ export default function Todo() {
         signUpForm={signUpForm}
         setCredential={setCredential}
       />
+      {error && <NewError error={error} setError={setError} />}
       {authStatus.auth ? (
-        <Main taskId={taskId} setTaskId={setTaskId} credential={credential} />
+        <Main
+          error={error}
+          setError={setError}
+          taskId={taskId}
+          setTaskId={setTaskId}
+          credential={credential}
+        />
       ) : (
         (loginForm && (
           <Login
+            setError={setError}
             authController={authStatus.authController}
             credential={credential}
             setCredential={setCredential}
           />
         )) ||
         (signUpForm && (
-          <Signup signUpForm={signUpForm} setSignUpForm={setSignUpForm} />
+          <Signup
+            setError={setError}
+            signUpForm={signUpForm}
+            setSignUpForm={setSignUpForm}
+          />
         ))
       )}
     </>

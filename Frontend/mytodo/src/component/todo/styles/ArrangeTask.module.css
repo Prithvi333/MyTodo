@@ -7,9 +7,13 @@
 #card {
   /* border: 2px solid gray; */
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
   border-radius: 5px;
-  line-height: 0.9;
+  line-height: 0.8.5;
+  transition: all 0.7s ease-out 0.1s;
+}
+#card:hover {
+  transform: scale(1.1);
 }
 .flex {
   display: flex;

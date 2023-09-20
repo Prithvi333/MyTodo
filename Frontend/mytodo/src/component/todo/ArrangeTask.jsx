@@ -10,12 +10,12 @@ export default function ArrangeTask({ task, handleStatus, checkedData }) {
   const impbtnbackground = task.favorite ? Styles.btnbackground : null;
   const compbtnbackground = task.complete ? Styles.btnbackground : null;
   const delbtnbackground = task.deleted ? Styles.btnbackground : null;
-  console.log(task);
+
   return (
     <div className={color} id={Styles.card}>
       <div className={Styles.flex}>
         <h4>{task.taskId}</h4>
-        <h4>{task.taskTime}</h4>
+        <h4>{task.taskTime.substring(0, 8)}</h4>
       </div>
       <h3 id={Styles.underlinetext}>{task.taskTitle}</h3>
       <p>{task.taskDesc}</p>
@@ -27,7 +27,6 @@ export default function ArrangeTask({ task, handleStatus, checkedData }) {
         <div className={Styles.opttaker}>
           {!checkedData && (
             <>
-              ({" "}
               <button
                 onClick={() => handleStatus("favoritetask", task.taskId)}
                 className="btn"
@@ -49,7 +48,6 @@ export default function ArrangeTask({ task, handleStatus, checkedData }) {
               >
                 Delete
               </button>
-              )
             </>
           )}
         </div>

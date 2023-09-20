@@ -8,11 +8,11 @@ const cred = {
   userPassword: "",
 };
 
-export default function Signup() {
+export default function Signup({ setError }) {
   const [credential, setCredential] = useState(cred);
   const triggerSignup = (e) => {
     e.preventDefault();
-    userSignUp(credential);
+    userSignUp(credential, setError);
     setCredential(cred);
   };
 

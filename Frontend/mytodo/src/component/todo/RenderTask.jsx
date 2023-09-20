@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ArrangeTask from "./ArrangeTask";
 import Styles from "./styles/main.module.css";
 import handleUpdates from "./APIs/handleUpdate";
@@ -10,11 +9,10 @@ export default function RenderTask({
   username,
   password,
   checkedData,
+  setEmptyChecker,
+  setLoader,
 }) {
-  const [sorter, setSorter] = useState("");
-
   const handleStatus = (type, id) => {
-    console.log("running");
     handleUpdates(
       type,
       id,
@@ -22,22 +20,14 @@ export default function RenderTask({
       setData,
       getOriginalData,
       username,
-      password
+      password,
+      setEmptyChecker,
+      setLoader
     );
   };
 
   return (
     <div id={Styles.gridshow}>
-      {/* <select
-        value={sorter}
-        onChange={(e) => setSorter(e.target.value)}
-        className="inpborder"
-        id={Styles.idsorter}
-      >
-        <option value="">Sort</option>
-        <option value="asc">ascending</option>
-        <option value="desc">descending</option>
-      </select> */}
       {data.map((task) => (
         <ArrangeTask
           checkedData={checkedData}

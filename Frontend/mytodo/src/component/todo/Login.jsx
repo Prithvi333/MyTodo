@@ -1,18 +1,28 @@
 import Styles from "./styles/Login.module.css";
 import userLogin from "./APIs/userLogin";
+import { useEffect } from "react";
 
-export default function Login({ authController, credential, setCredential }) {
+export default function Login({
+  authController,
+  credential,
+  setCredential,
+  setError,
+}) {
   const triggerLogin = async (e) => {
     e.preventDefault();
     const response = await userLogin(credential);
-    if (response.status == 200) authController();
+    if (response && response.status === 200) {
+      authController();
+      setError("");
+    } else {
+      setError("Incorrect email or password");
+    }
   };
-
   return (
     <div className={Styles.backgroundimg}>
       <img src="" alt="" />
       <form id={Styles.formalignment} action="#">
-        <label htmlFor="">Enter your username</label>
+        <label htmlFor="">Enter your email</label>
         <br />
         <input
           onChange={(e) =>
@@ -22,7 +32,7 @@ export default function Login({ authController, credential, setCredential }) {
           className="inpborder"
           type="email"
           name="username"
-          id=""
+          id="emfield"
         />
         <br />
         <label htmlFor="">Enter your password</label>

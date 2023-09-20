@@ -7,10 +7,11 @@ export default async function handleUpdates(
   setData,
   getOriginalData,
   username,
-  password
+  password,
+  setEmptyChecker,
+  setLoader
 ) {
-  console.log("working..");
-  getOriginalData(getData, setData);
+  // getOriginalData(getData, setData, setLoader, setEmptyChecker);
   await fetch(`http://localhost:8080/todo/${type}/${id}`, {
     method: type == "deletetask" ? "DELETE" : "POST",
     headers: {
@@ -18,5 +19,5 @@ export default async function handleUpdates(
       Authorization: "Basic " + btoa(`${username}:${password}`),
     },
   });
-  getOriginalData(getData, setData);
+  getOriginalData(getData, setData, setEmptyChecker, setLoader);
 }

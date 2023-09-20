@@ -5,9 +5,13 @@ export default async function createTask(
   username,
   password,
   getData,
-  setData
+  setData,
+  setEmptyChecker,
+  setLoader,
+  error,
+  setError
 ) {
-  await fetch("http://localhost:8080/todo/task", {
+  const tsk = await fetch("http://localhost:8080/todo/task", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -15,6 +19,13 @@ export default async function createTask(
     },
     body: JSON.stringify(newTask),
   });
+  setError("Check you deadline or priority field");
+  // const od = await tsk.json();
+  // tsk.status === 502
+  //   ? setError(od.errorMessage)
+  //   : tsk.status === 400
+  //   ? setError("Check you deadline or priority field")
+  //   : setError("");
 
-  getOriginalData(getData, setData);
+  getOriginalData(getData, setData, setEmptyChecker, setLoader);
 }

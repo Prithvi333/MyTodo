@@ -15,12 +15,7 @@
   /* border: 2px solid red; */
   width: 90%;
   padding: 50px;
-  background-color: #e8eaed;
-  /* background-image: url(../../../resources/jess-bailey-94Ld_MtIUf0-unsplash.jpg); */
-  /* background-repeat: no-repeat; */
-  /* background-size: contain;
-  background-position: center;
-  width: 100%; */
+  background-color: #dee8f6;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -61,6 +56,12 @@
   border-radius: 5px;
   cursor: pointer;
   display: block;
+  border: 2px solid white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: border 0.5s ease-in-out;
+}
+.leftbuttons:hover {
+  border: 2px solid black;
 }
 .marginleft {
   margin-left: 10px;
