@@ -11,6 +11,7 @@ const getOriginalData = async (
     setLoader(false);
     if (planeData.status == 500) setEmptyChecker(true);
     planeData[0] && setData([...planeData]);
+    return planeData;
   } catch (error) {
     console.log(error);
   }

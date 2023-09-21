@@ -19,13 +19,13 @@ export default async function createTask(
     },
     body: JSON.stringify(newTask),
   });
-  setError("Check you deadline or priority field");
-  // const od = await tsk.json();
-  // tsk.status === 502
-  //   ? setError(od.errorMessage)
-  //   : tsk.status === 400
-  //   ? setError("Check you deadline or priority field")
-  //   : setError("");
+
+  const od = await tsk.json();
+  tsk.status === 502
+    ? setError(od.errorMessage)
+    : tsk.status === 400
+    ? setError("Check you deadline or priority field")
+    : setError("");
 
   getOriginalData(getData, setData, setEmptyChecker, setLoader);
 }

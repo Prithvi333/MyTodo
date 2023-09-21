@@ -51,7 +51,7 @@ export default function Header({
                   setSignUpForm(false);
                   setLoginForm(!loginForm);
                 }}
-                className="btn"
+                className={`btn ${loginForm ? Styles.activebtn : ""}`}
               >
                 Login
               </button>
@@ -60,7 +60,7 @@ export default function Header({
                   setLoginForm(false);
                   setSignUpForm(!signUpForm);
                 }}
-                className="btn"
+                className={`btn ${signUpForm ? Styles.activebtn : ""}`}
               >
                 Register
               </button>

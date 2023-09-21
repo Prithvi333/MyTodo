@@ -5,13 +5,13 @@
 }
 .btn {
   margin: 4px;
-  padding: 4px;
+  padding: 4px 6px;
   border-radius: 4px;
   cursor: pointer;
   background-color: whitesmoke;
   border: 2px solid white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  transition: border 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .btn:hover {
   border: 2px solid black;
@@ -34,6 +34,21 @@
 }
 
 .emptytask {
-  margin-top: 40px;
-  text-align: center;
+  position: absolute;
+  color: #136dbd;
+  right: 40%;
+  bottom: 49%;
+}
+.sortposition {
+  position: absolute;
+  left: 90%;
+}
+.inplabel {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1224px) {
+  .emptytask {
+    bottom: 77%;
+  }
 }

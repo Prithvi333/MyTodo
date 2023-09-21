@@ -70,7 +70,9 @@ export default function AddTask({ addTask }) {
             <option value="SUNDAY">Sunday</option>
           </select>
           <br />
-          <label htmlFor="data">Choose deadline</label>
+          <label className="inplabel" htmlFor="data">
+            Choose deadline
+          </label>
           <br />
           <input
             className={"inpborder"}
@@ -83,9 +85,13 @@ export default function AddTask({ addTask }) {
         </div>
 
         <div>
-          <label htmlFor="">Choose your priority</label>
+          <label className="inplabel" htmlFor="">
+            Choose your priority
+          </label>
           <br />
-          <label htmlFor="low">Low</label>
+          <label className="inplabel" htmlFor="low">
+            Low
+          </label>
           <input
             onChange={handleUpdater}
             value="LOW"
@@ -93,7 +99,9 @@ export default function AddTask({ addTask }) {
             name="taskPriority"
             id="low"
           />
-          <label htmlFor="high">Medium</label>
+          <label className="inplabel" htmlFor="high">
+            Medium
+          </label>
           <input
             onChange={handleUpdater}
             value="MEDIUM"
@@ -101,7 +109,9 @@ export default function AddTask({ addTask }) {
             name="taskPriority"
             id="high"
           />
-          <label htmlFor="medium">High</label>
+          <label className="inplabel" htmlFor="medium">
+            High
+          </label>
           <input
             onChange={handleUpdater}
             value="HIGH"

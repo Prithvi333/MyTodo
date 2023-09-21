@@ -22,7 +22,9 @@ export default function Login({
     <div className={Styles.backgroundimg}>
       <img src="" alt="" />
       <form id={Styles.formalignment} action="#">
-        <label htmlFor="">Enter your email</label>
+        <label className="inplabel" htmlFor="">
+          Enter your email
+        </label>
         <br />
         <input
           onChange={(e) =>
@@ -35,7 +37,9 @@ export default function Login({
           id="emfield"
         />
         <br />
-        <label htmlFor="">Enter your password</label>
+        <label className="inplabel" htmlFor="">
+          Enter your password
+        </label>
         <br />
         <input
           onChange={(e) =>
@@ -50,10 +54,10 @@ export default function Login({
         <br />
         <input
           onClick={triggerLogin}
+          id={Styles.activebtn}
           className="btn"
           type="submit"
           name=""
-          id=""
           value="Login"
         />
       </form>

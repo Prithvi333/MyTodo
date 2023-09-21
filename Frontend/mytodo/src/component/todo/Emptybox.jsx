@@ -1,3 +1,3 @@
 export default function EmptyBox() {
-  return <h1 className="emptytask">Empty task</h1>;
+  return <h2 className="emptytask">Empty task</h2>;
 }

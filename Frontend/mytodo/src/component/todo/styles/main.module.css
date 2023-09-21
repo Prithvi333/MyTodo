@@ -32,7 +32,8 @@
   padding: 19px;
   margin-left: 10px;
   border-radius: 5px;
-  background-color: rgb(120, 209, 181);
+  /* background-color: rgb(120, 209, 181); */
+  background-color: whitesmoke;
 }
 #gridshow {
   /* border: 2px solid green; */

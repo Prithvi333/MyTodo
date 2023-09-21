@@ -3,9 +3,9 @@ import { useEffect, useRef } from "react";
 export default function NewError({ error, setError }) {
   let ref = useRef(null);
   let settingErrorStyle = {
-    textAlign: "center",
-    display: "block",
-    position: "relative",
+    position: "absolute",
+    color: "#136dbd",
+    right: "43.5%",
   };
 
   useEffect(() => {
@@ -17,8 +17,8 @@ export default function NewError({ error, setError }) {
   }, [error]);
 
   let errorStyle = error
-    ? { ...settingErrorStyle, visiblity: "visible" }
-    : { ...settingErrorStyle, visiblity: "hidden" };
+    ? { ...settingErrorStyle, zIndex: "1" }
+    : { ...settingErrorStyle, zIndex: "0" };
 
-  return <h3 style={errorStyle}>{error}</h3>;
+  return <h4 style={errorStyle}>{error}</h4>;
 }

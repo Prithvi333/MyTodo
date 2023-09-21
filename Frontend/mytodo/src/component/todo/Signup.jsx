@@ -21,7 +21,9 @@ export default function Signup({ setError }) {
       <img src="" alt="" />
 
       <form id={Styles.formalignment} action="#">
-        <label htmlFor="">Enter your username</label>
+        <label className="inplabel" htmlFor="">
+          Enter your username
+        </label>
         <br />
         <input
           onChange={(e) =>
@@ -34,7 +36,9 @@ export default function Signup({ setError }) {
           id=""
         />
         <br />
-        <label htmlFor="">Enter email address</label>
+        <label className="inplabel" htmlFor="">
+          Enter email address
+        </label>
         <br />
         <input
           onChange={(e) =>
@@ -47,7 +51,9 @@ export default function Signup({ setError }) {
           id=""
         />
         <br />
-        <label htmlFor="">Enter your password</label>
+        <label className="inplabel" htmlFor="">
+          Enter your password
+        </label>
         <br />
         <input
           onChange={(e) =>
