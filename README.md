@@ -42,7 +42,7 @@ Todo app that helps us to manage day to day tasks and accomplish them quickly.
 <img
   align="right"
         width="40%"
-        src="Frontend/mytodo/src/resources/Screenshot%202023-09-21%20180030.png"
+        src="Frontend/src/utility/logo.png"
         alt="error"
       />
 
