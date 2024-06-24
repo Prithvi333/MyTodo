@@ -37,13 +37,6 @@ Todo app that helps us to manage day to day tasks and accomplish them quickly.
 - Maven
 - MySQL Server
 - React
-## Database
-
-<img
-  align="right"
-        width="40%"
-        src="Frontend/src/utility/logo.png"
-        alt="error"
-      />
+ 
 
 
