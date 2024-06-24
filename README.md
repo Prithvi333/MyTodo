@@ -4,7 +4,7 @@
 <img
   align="right"
         width="40%"
-        src="Frontend/mytodo/src/resources/logo.png"
+        src="Frontend/src/utility/logo.png"
         alt="error"
       />
 
